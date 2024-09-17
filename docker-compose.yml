@@ -88,6 +88,7 @@ services:
       - action.auto_create_index=false
       - plugins.security.ssl.http.enabled=false
       - plugins.security.disabled=true
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=StrongPassw0rd!
 
   ## https://www.graylog.org/
   ### Graylog web console (System → Input → Select GELF UDP)
