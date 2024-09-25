@@ -77,4 +77,19 @@ class CandidateApiTest {
 
         assertEquals(candidates.stream().map(api.dto.out.Candidate::fromDomain).toList(), response);
     }
+
+    @Test
+    void findById() {
+        String id = UUID.randomUUID().toString();
+        Candidate candidate = Instancio.create(Candidate.class);
+
+        when(candidateService.findById(id)).thenReturn(candidate);
+
+        var response = candidateApi.findById(id);
+
+        verify(candidateService).findById(id);
+        verifyNoMoreInteractions(candidateService);
+
+        assertEquals(api.dto.out.Candidate.fromDomain(candidate), response);
+    }
 }

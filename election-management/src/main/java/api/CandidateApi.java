@@ -29,4 +29,9 @@ public class CandidateApi {
     public List<api.dto.out.Candidate> list() {
         return service.findAll().stream().map(api.dto.out.Candidate::fromDomain).toList();
     }
+
+    public api.dto.out.Candidate findById(String id) {
+        Candidate candidate = service.findById(id);
+        return api.dto.out.Candidate.fromDomain(candidate);
+    }
 }
