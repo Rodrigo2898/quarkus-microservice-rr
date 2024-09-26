@@ -115,6 +115,9 @@ services:
         condition: service_started
       mongodb:
         condition: service_started
+    ports:
+      - "9000:9000"
+      - "12201:12201/udp"
     labels:
       - traefik.enable=true
       - traefik.http.routers.graylog.rule=Host(`logging.private.dio.localhost`)
