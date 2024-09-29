@@ -3,7 +3,7 @@ package infrastructure.repositories.entities;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 
-@Entity(name = "tb_election_candidate")
+@Entity(name = "election_candidate")
 public class ElectionCandidate {
     @EmbeddedId
     private ElectionCandidateId id;

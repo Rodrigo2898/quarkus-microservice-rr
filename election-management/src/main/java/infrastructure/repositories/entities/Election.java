@@ -3,7 +3,7 @@ package infrastructure.repositories.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-@Entity(name = "tb_elections")
+@Entity(name = "elections")
 public class Election {
     @Id
     private String id;
