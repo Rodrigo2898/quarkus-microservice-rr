@@ -31,12 +31,5 @@ public class Subscribe {
                     Election election = repository.findById(id);
                     LOGGER.info("Election " + election.id() + " starting");
                 });
-
-
-//        redisDataSource.pubsub(String.class).subscribe("elections", id -> {
-//            LOGGER.info("Election: " + id + " received from subscription");
-//            Election election = repository.findById(id);
-//            LOGGER.info("Election " + election.id() + " starting");
-//        });
     }
 }
