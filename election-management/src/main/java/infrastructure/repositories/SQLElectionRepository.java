@@ -3,6 +3,7 @@ package infrastructure.repositories;
 import domain.Candidate;
 import domain.Election;
 import domain.ElectionRepository;
+import domain.annotations.Principal;
 import infrastructure.repositories.entities.ElectionCandidate;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
@@ -15,6 +16,11 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.groupingBy;
 
+/*
+ Quando fizer uma chamada de injeção de dependêcia com o qualifier @Principal, para o ElectionRepository
+ apenas o SQLElectionRepository será injetado
+*/
+@Principal
 @ApplicationScoped
 public class SQLElectionRepository implements ElectionRepository {
     private final EntityManager entityManager;
@@ -37,7 +43,7 @@ public class SQLElectionRepository implements ElectionRepository {
                 .forEach(entityManager::merge);
     }
 
-
+    @Override
     public List<Election> findAll() {
         Stream<Object[]> stream = entityManager
                 .createNativeQuery("SELECT e.id AS election_id, c.id AS candidate_id, c.photo, c.given_name, c.family_name, " +
