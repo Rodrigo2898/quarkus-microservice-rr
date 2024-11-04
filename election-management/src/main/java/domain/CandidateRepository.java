@@ -24,4 +24,6 @@ public interface CandidateRepository {
 
         return find(query).stream().findFirst();
     }
+
+
 }

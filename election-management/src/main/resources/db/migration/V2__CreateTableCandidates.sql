@@ -12,7 +12,7 @@ CREATE TABLE election_candidate (
 
 
 -- SEED: mockaroo.com
-INSERT INTO candidates (id, photo, given_name, family_name, email, phone, job_title) VALUES
+INSERT INTO tb_candidates (id, photo, given_name, family_name, email, phone, job_title) VALUES
                                                                                          ('968984fb-441a-4fa8-875d-25d640bcc7cf', 'https://robohash.org/voluptatemquiaexcepturi.png', 'Ricky', 'Endricci', 'rendricci0@cbslocal.com', null, null),
                                                                                          ('7b05d6be-540b-4f3e-b057-15667a71b551', 'https://robohash.org/isteexercitationemconsequatur.png', 'Francklin', 'Leivers', 'fleivers1@stumbleupon.com', '702-218-9762', null),
                                                                                          ('0383f511-fa58-4269-ba32-b5bbee0939e2', 'https://robohash.org/autautquod.png', 'Gorden', 'Habergham', 'ghabergham2@europa.eu', '868-308-3712', 'General Manager'),

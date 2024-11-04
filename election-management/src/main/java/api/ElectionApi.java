@@ -21,7 +21,7 @@ public class ElectionApi {
 
     public List<Election> findAll() {
         return service.findAll()
-                .stream().map(election -> Election.fromDomain(election))
+                .stream().map(Election::fromDomain)
                 .toList();
     }
 }

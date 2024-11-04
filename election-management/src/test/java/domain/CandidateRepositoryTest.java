@@ -25,7 +25,7 @@ public abstract class CandidateRepositoryTest {
 
     @Test
     void findAll() {
-        List<Candidate> candidates = Instancio.stream(Candidate.class).limit(10).toList();
+        List<Candidate> candidates = Instancio.stream(Candidate.class).limit(30).toList();
 
         repository().save(candidates);
 
@@ -48,5 +48,10 @@ public abstract class CandidateRepositoryTest {
 
         assertEquals(1, result.size());
         assertEquals(candidate2, result.get(0));
+    }
+
+    @Test
+    void delete() {
+
     }
 }

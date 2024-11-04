@@ -44,3 +44,4 @@ nb-configuration.xml
 # TLS Certificates
 .certs/
 .idea/
+pom.xml.versionsBackup
