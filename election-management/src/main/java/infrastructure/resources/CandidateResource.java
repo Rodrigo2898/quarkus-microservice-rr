@@ -40,4 +40,17 @@ public class CandidateResource {
     public List<Candidate> list() {
         return api.list();
     }
+
+    @GET
+    @Path("/{id}")
+    public Candidate get(@PathParam("id") String id) {
+        return api.findById(id);
+    }
+
+    @DELETE
+    @Path("/{id}")
+    @Transactional
+    public void delete(@PathParam("id") String id) {
+        api.delete(id);
+    }
 }

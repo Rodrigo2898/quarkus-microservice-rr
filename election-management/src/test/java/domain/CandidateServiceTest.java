@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -70,6 +71,16 @@ class CandidateServiceTest {
         assertThrows(NoSuchElementException.class, () -> service.findById(candidate.id()));
 
         verify(repository).findById(candidate.id());
+        verifyNoMoreInteractions(repository);
+    }
+
+    @Test
+    void delete() {
+        String candidateId = UUID.randomUUID().toString();
+
+        service.delete(candidateId);
+
+        verify(repository).delete(candidateId);
         verifyNoMoreInteractions(repository);
     }
 }

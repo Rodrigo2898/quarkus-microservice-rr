@@ -52,6 +52,15 @@ public abstract class CandidateRepositoryTest {
 
     @Test
     void delete() {
+        Candidate candidate = Instancio.create(Candidate.class);
+        repository().save(candidate);
 
+        Optional<Candidate> savedCandidate = repository().findById(candidate.id());
+        assertTrue(savedCandidate.isPresent());
+
+
+        repository().delete(candidate.id());
+        Optional<Candidate> deletedCandidate = repository().findById(candidate.id());
+        assertFalse(deletedCandidate.isPresent());
     }
 }

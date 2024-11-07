@@ -25,5 +25,11 @@ public interface CandidateRepository {
         return find(query).stream().findFirst();
     }
 
+    void delete(Candidate candidate);
+
+    default void delete(String id) {
+        Candidate candidate = findById(id).orElseThrow();
+        delete(candidate);
+    }
 
 }

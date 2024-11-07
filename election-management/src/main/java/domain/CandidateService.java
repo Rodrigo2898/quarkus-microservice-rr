@@ -23,4 +23,8 @@ public class CandidateService {
     public Candidate findById(String id) {
         return repository.findById(id).orElseThrow();
     }
+
+    public void delete(String id) {
+        repository.delete(id);
+    }
 }

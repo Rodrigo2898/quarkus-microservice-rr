@@ -34,4 +34,8 @@ public class CandidateApi {
         Candidate candidate = service.findById(id);
         return api.dto.out.Candidate.fromDomain(candidate);
     }
+
+    public void delete(String id) {
+        service.delete(id);
+    }
 }

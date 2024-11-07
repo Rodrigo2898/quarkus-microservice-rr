@@ -92,4 +92,14 @@ class CandidateApiTest {
 
         assertEquals(api.dto.out.Candidate.fromDomain(candidate), response);
     }
+
+    @Test
+    void delete() {
+        String id = UUID.randomUUID().toString();
+
+        candidateApi.delete(id);
+
+        verify(candidateService).delete(id);
+        verifyNoMoreInteractions(candidateService);
+    }
 }
