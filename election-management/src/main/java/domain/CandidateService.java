@@ -7,9 +7,11 @@ import java.util.List;
 @ApplicationScoped // Anotação de contexto e injeção de dependência
 public class CandidateService {
     private final CandidateRepository repository;
+    private final infrastructure.repositories.PanacheCandidateRepository panacheCandidateRepository;
 
-    public CandidateService(CandidateRepository repository) {
+    public CandidateService(CandidateRepository repository, infrastructure.repositories.PanacheCandidateRepository  panacheCandidateRepository) {
         this.repository = repository;
+        this.panacheCandidateRepository = panacheCandidateRepository;
     }
 
     public void save(Candidate candidate) {
@@ -26,5 +28,9 @@ public class CandidateService {
 
     public void delete(String id) {
         repository.delete(id);
+    }
+
+    public List<infrastructure.repositories.entities.Candidate> listAll() {
+        return panacheCandidateRepository.findCandidate();
     }
 }

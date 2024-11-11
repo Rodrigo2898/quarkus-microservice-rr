@@ -53,4 +53,10 @@ public class CandidateResource {
     public void delete(@PathParam("id") String id) {
         api.delete(id);
     }
+
+    @GET
+    @Path("/listCandidates")
+    public List<infrastructure.repositories.entities.Candidate> listCandidates() {
+        return api.listCandidates();
+    }
 }

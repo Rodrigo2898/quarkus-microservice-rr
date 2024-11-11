@@ -38,4 +38,8 @@ public class CandidateApi {
     public void delete(String id) {
         service.delete(id);
     }
+
+    public List<infrastructure.repositories.entities.Candidate> listCandidates() {
+        return service.listAll();
+    }
 }
