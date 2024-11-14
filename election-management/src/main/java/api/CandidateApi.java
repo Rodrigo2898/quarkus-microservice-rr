@@ -39,7 +39,20 @@ public class CandidateApi {
         service.delete(id);
     }
 
-    public List<infrastructure.repositories.entities.Candidate> listCandidates() {
-        return service.listAll();
+    public void createCandidate(CreateCandidate dto) {
+        service.saveCandidate(dto.toDomain());
+    }
+
+    public api.dto.out.Candidate findCandidateById(String id) {
+        Candidate candidate = service.findCandidateById(id);
+        return api.dto.out.Candidate.fromDomain(candidate);
+    }
+
+    public List<api.dto.out.Candidate> listCandidates() {
+        return service.findCandidates().stream().map(api.dto.out.Candidate::fromDomain).toList();
+    }
+
+    public void deleteCandidate(String id) {
+        service.deleteCandidate(id);
     }
 }

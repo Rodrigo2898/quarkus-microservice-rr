@@ -54,9 +54,30 @@ public class CandidateResource {
         api.delete(id);
     }
 
+    @POST
+    @Path("/candidates")
+    @ResponseStatus(RestResponse.StatusCode.CREATED)
+    @Transactional
+    public void createCandidate(CreateCandidate dto) {
+        api.createCandidate(dto);
+    }
+
     @GET
-    @Path("/listCandidates")
-    public List<infrastructure.repositories.entities.Candidate> listCandidates() {
+    @Path("/candidates/{id}")
+    public Candidate getCandidate(@PathParam("id") String id) {
+        return api.findCandidateById(id);
+    }
+
+    @GET
+    @Path("/candidates")
+    public List<Candidate> listCandidates() {
         return api.listCandidates();
+    }
+
+    @DELETE
+    @Path("/candidates/{id}")
+    @Transactional
+    public void deleteCandidate(@PathParam("id") String id) {
+        api.deleteCandidate(id);
     }
 }
